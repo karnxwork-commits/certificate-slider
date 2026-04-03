@@ -2,7 +2,7 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>Certificate Slider</title>
+<title>Certificates</title>
 
 <style>
 body {
@@ -17,41 +17,54 @@ h1 {
     color: #d35400;
 }
 
-.slider {
-    position: relative;
-    max-width: 800px;
-    margin: auto;
+/* Grid */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 30px;
 }
 
-.slide {
-    display: none;
-}
-
-.slide img {
+.gallery img {
     width: 100%;
     border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.active {
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+
+.lightbox img {
+    margin: auto;
     display: block;
+    max-width: 90%;
+    max-height: 90%;
 }
 
-/* ปุ่ม */
-.prev, .next {
-    cursor: pointer;
+.close {
     position: absolute;
-    top: 50%;
-    padding: 10px;
+    top: 20px;
+    right: 40px;
     color: white;
-    font-size: 20px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 50%;
-    transform: translateY(-50%);
+    font-size: 40px;
+    cursor: pointer;
 }
-
-.prev { left: 10px; }
-.next { right: 10px; }
 </style>
 
 </head>
@@ -59,49 +72,27 @@ h1 {
 
 <h1>🏆 ประกาศนียบัตรหน่วยงาน</h1>
 
-<div class="slider">
+<div class="gallery">
+    <img src="cert1.jpg" onclick="openLightbox(this.src)">
+    <img src="cert2.jpg" onclick="openLightbox(this.src)">
+    <img src="cert3.jpg" onclick="openLightbox(this.src)">
+    <img src="cert4.jpg" onclick="openLightbox(this.src)">
+</div>
 
-    <div class="slide active">
-        <img src="cert1.jpg">
-    </div>
-
-    <div class="slide">
-        <img src="cert2.jpg">
-    </div>
-
-    <div class="slide">
-        <img src="cert3.jpg">
-    </div>
-
-    <div class="slide">
-        <img src="cert4.jpg">
-    </div>
-
-    <div class="prev" onclick="changeSlide(-1)">❮</div>
-    <div class="next" onclick="changeSlide(1)">❯</div>
-
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img">
 </div>
 
 <script>
-let index = 0;
-const slides = document.querySelectorAll(".slide");
-
-function showSlide(i) {
-    slides.forEach(s => s.classList.remove("active"));
-    slides[i].classList.add("active");
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "block";
+    document.getElementById("lightbox-img").src = src;
 }
 
-function changeSlide(step) {
-    index += step;
-    if (index >= slides.length) index = 0;
-    if (index < 0) index = slides.length - 1;
-    showSlide(index);
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
 }
-
-// auto slide
-setInterval(() => {
-    changeSlide(1);
-}, 3000);
 </script>
 
 </body>
