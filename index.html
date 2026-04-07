@@ -90,23 +90,52 @@ h1 {
     cursor: pointer;
 }
 
-/* ANIMATION */
-@keyframes zoomIn {
-    from {
-        transform: scale(0.7);
-        opacity: 0;
-    }
+/* HEADER ANIMATION */
+.header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    background: linear-gradient(180deg, #fff, #fdebe3);
+    border-bottom: 1px solid #f1d2c4;
+
+    /* animation */
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeSlideDown 1s ease forwards;
+}
+
+/* LOGO */
+.logo {
+    width: 120px;
+    margin-bottom: 15px;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeSlideDown 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+/* TITLE */
+h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    background: linear-gradient(90deg, #D71920, #F26A21);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeSlideDown 1s ease forwards;
+    animation-delay: 0.4s;
+}
+
+/* KEYFRAME */
+@keyframes fadeSlideDown {
     to {
-        transform: scale(1);
         opacity: 1;
+        transform: translateY(0);
     }
 }
-
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
 /* MOBILE */
 @media (max-width: 768px) {
     .gallery {
