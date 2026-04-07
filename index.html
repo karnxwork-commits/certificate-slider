@@ -142,46 +142,8 @@ h1 {
         grid-template-columns: 1fr;
     }
 }
-</style>
 
-</head>
-<body>
-
-<div class="header">
-    <!-- เปลี่ยนโลโก้ตรงนี้ -->
-    <img src="ghb-logo.png" class="logo">
-    <h1>🏆 ประกาศนียบัตรหน่วยงาน</h1>
-</div>
-
-<div class="gallery">
-    <img src="cert1.jpg" onclick="openLightbox(this.src)">
-    <img src="cert2.jpg" onclick="openLightbox(this.src)">
-    <img src="cert3.jpg" onclick="openLightbox(this.src)">
-    <img src="cert4.jpg" onclick="openLightbox(this.src)">
-</div>
-
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <span class="close">&times;</span>
-    <img id="lightbox-img">
-</div>
-
-<script>
-function openLightbox(src) {
-    const lightbox = document.getElementById("lightbox");
-    const img = document.getElementById("lightbox-img");
-    img.src = src;
-    lightbox.style.display = "flex";
-}
-
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-}
-</script>
-
-</body>
-</html>
-
-/* APPLE STYLE CARD */
+    /* APPLE STYLE CARD */
 .card {
     position: relative;
     border-radius: 18px;
@@ -254,3 +216,43 @@ function closeLightbox() {
         transform: translateY(0);
     }
 }
+</style>
+
+</head>
+<body>
+
+<div class="header">
+    <!-- เปลี่ยนโลโก้ตรงนี้ -->
+    <img src="ghb-logo.png" class="logo">
+    <h1>🏆 ประกาศนียบัตรหน่วยงาน</h1>
+</div>
+
+<div class="gallery">
+    <img src="cert1.jpg" onclick="openLightbox(this.src)">
+    <img src="cert2.jpg" onclick="openLightbox(this.src)">
+    <img src="cert3.jpg" onclick="openLightbox(this.src)">
+    <img src="cert4.jpg" onclick="openLightbox(this.src)">
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src) {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("lightbox-img");
+    img.src = src;
+    lightbox.style.display = "flex";
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
